@@ -2,7 +2,6 @@ return{
   "williamboman/mason.nvim",
   dependencies = {
     "williamboman/mason-lspconfig.nvim",
-    -- "neovim/nvim-lspconfig",
   },
   config = function()
     local mason = require("mason")
@@ -28,7 +27,6 @@ return{
           "ast_grep", -- c, c++, c# lsp server
           "rust_analyzer", -- rust lsp server
           "sqlls", -- sql lsp server
-
         },
       }
     )
