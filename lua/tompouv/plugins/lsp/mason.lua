@@ -2,9 +2,11 @@ return{
   "williamboman/mason.nvim",
   dependencies = {
     "williamboman/mason-lspconfig.nvim",
+    "whoIsSethDaniel/mason-tool-installer.nvim",
   },
   config = function()
     local mason = require("mason")
+
     mason.setup({
       ui = {
             icons = {
@@ -16,6 +18,7 @@ return{
     })
 
     local masonLspconfig = require("mason-lspconfig")
+
     masonLspconfig.setup(
       {
         ensure_installed = {
@@ -30,5 +33,15 @@ return{
         },
       }
     )
+
+    local mason_tool_installer = require('mason-tool-installer')
+    mason_tool_installer.setup({
+      ensure_installed = {
+        "prettier",
+        "stylua",
+        "isort",
+        "ruff",
+      }
+    })
   end
 }
