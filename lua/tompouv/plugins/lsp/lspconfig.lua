@@ -76,6 +76,7 @@ return {
 				vim.lsp.config(server_name, {
 					capabilities = capabilities,
 				})
+				vim.lsp.enable(server_name) -- 👈 start the server
 			end,
 			["lua_ls"] = function()
 				-- configure lua server (with special settings)
@@ -93,6 +94,9 @@ return {
 						},
 					},
 				})
+				vim.lsp.enable("lua_ls")
+			end,
+			["pylsp"] = function()
 				vim.lsp.config("pylsp", {
 					settings = {
 						pylsp = {
@@ -102,6 +106,7 @@ return {
 						},
 					},
 				})
+				vim.lsp.enable("pylsp")
 			end,
 		})
 	end,
