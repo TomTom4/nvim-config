@@ -98,14 +98,32 @@ return {
 			end,
 			["pylsp"] = function()
 				vim.lsp.config("pylsp", {
+					capabilities = capabilities,
 					settings = {
 						pylsp = {
 							plugins = {
-								pylsp_mypy = { enabled = true },
+								-- Disable default formatters you don’t use
+								black = { enabled = false },
+								yapf = { enabled = false },
+								autopep8 = { enabled = false },
+
+								-- enable ruff
+								ruff = {
+									enabled = true,
+								},
+								-- enable mypy
+								mypy = {
+									enabled = true,
+									live_mode = true,
+									strict = false,
+									--executable = vim.fn.getcwd() .. "/.venv/bin/mypy", -- must match your project venv
+								},
 							},
 						},
 					},
 				})
+				--vim.notify("ℹ️ pylsp configured", vim.log.levels.DEBUG)
+				--vim.notify("ℹ️ mypy used is :" .. vim.fn.getcwd() .. "/.venv/bin/mypy", vim.log.levels.DEBUG)
 				vim.lsp.enable("pylsp")
 			end,
 		})

@@ -4,10 +4,9 @@ return {
 		ensure_installed = {
 			"prettier",
 			"stylua",
-			"isort",
 			"ruff",
-			"black",
 			"eslint_d",
+			"vale",
 		},
 	},
 }
