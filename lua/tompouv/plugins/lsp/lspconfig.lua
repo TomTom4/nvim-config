@@ -110,6 +110,8 @@ return {
 								-- enable ruff
 								ruff = {
 									enabled = true,
+									formatEnabled = true,
+									format = { "I" },
 								},
 								-- enable mypy
 								mypy = {
